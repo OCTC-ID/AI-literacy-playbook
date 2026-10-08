@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" sizes="48x48" href="../images/icon-48.png">
 <link rel="apple-touch-icon" href="../images/icon-180.png">
 <link rel="stylesheet" href="../css/styles.css?v=12">
-<link rel="stylesheet" href="workbook.css?v=12">
+<link rel="stylesheet" href="workbook.css?v=13">
 </head>
 <body class="guide-page intro-page workbook-page" data-workbook="ai-statement">
 
@@ -32,6 +32,7 @@
 <div class="behavior-bar">Workbook &nbsp;&middot;&nbsp; Exercise 1</div>
 
 <div class="wb-card"><span class="wb-label">You'll leave with</span><p>An AI Course Policy for your syllabus, a sentence students can use to tell you how they used AI, and a short AI label for each of your main assignments.</p></div>
+<p class="wb-skip wb-screen-only"><a href="#try-it">Skip to Try It</a></p>
 
 <div class="section wb-lesson">
 <span class="section-title">Why Two Policies</span>
@@ -86,16 +87,13 @@
 </ul>
 </div>
 
-<div class="section">
+<div class="section wb-try" id="try-it">
 <span class="section-title">Try It</span>
-<p class="wb-screen-only">Work through the steps below, or skip to the Copilot prompt at the end and let it interview you. Your answers stay in this browser only. To keep a copy, choose <strong>Print or save as PDF</strong>.</p>
+<p class="wb-screen-only">Work through the steps below, or skip to the Copilot prompt at the end and let it interview you. Your answers stay in this browser only. To keep a copy, choose <strong>Print or save as PDF</strong> when you finish the steps.</p>
 
-<div class="wb-tools">
-  <button class="wb-button" type="button" data-wb="print">Print or save as PDF</button>
-  <button class="wb-button secondary" type="button" data-wb="clear">Clear my answers</button>
-  <span class="wb-status" aria-live="polite"></span>
-</div>
 
+<div class="wb-try-grid">
+<div class="wb-try-main">
 <h2 class="wb-step"><span>Step 1</span>Your course</h2>
 <div class="wb-details">
 <div class="wb-question"><label for="course">Course</label><input id="course" type="text"><div class="wb-answer-print"></div></div>
@@ -137,9 +135,20 @@
 </div>
 
 
-<div class="wb-card wb-tagmaker" id="tagmaker">
-<span class="wb-label">Make an AI label for Blackboard</span>
-<p>Choose a level, adjust the wording if you like, and copy the label into the top of the assignment instructions in Blackboard. Students see the same label, with the same dots, on every assignment.</p>
+<h2 class="wb-step"><span>Step 4</span>How students tell you</h2>
+<div class="wb-question"><label for="disclose">How should students let you know when and how they used AI?<span class="wb-hint">A sentence at the end of the assignment? A note in the submission comments? Something else?</span></label><textarea id="disclose"></textarea><div class="wb-answer-print"></div></div>
+<div class="wb-question"><label for="sample">Write a sample sentence students could use.<span class="wb-hint">For example: "I used Copilot to brainstorm topic ideas. I chose the topic and wrote the paper myself."</span></label><textarea id="sample"></textarea><div class="wb-answer-print"></div></div>
+
+<h2 class="wb-step"><span>Step 5</span>When something goes outside the policy</h2>
+<div class="wb-question"><label for="outside">What will you do if a student uses AI in a way your policy doesn't allow?<span class="wb-hint">Think about the conversation first. Then write the one sentence that points to your Academic Integrity section, and check that your Academic Integrity section mentions AI.</span></label><textarea id="outside"></textarea><div class="wb-answer-print"></div></div>
+
+<h2 class="wb-step"><span>Step 6</span>Draft your policy</h2>
+<p>Pull your answers together into a policy written to your students. A simple structure: why AI use varies in your course, what each level means, how to tell you when they used AI, and what to do if they're not sure.</p>
+<div class="wb-question"><label for="draft">Your AI Course Policy</label><textarea id="draft"></textarea><div class="wb-answer-print"></div></div>
+</div>
+<aside class="wb-card wb-tagmaker" id="tagmaker" aria-labelledby="tagmaker-title">
+<span class="wb-label" id="tagmaker-title">Make an AI label for Blackboard</span>
+<p>When you settle on a level in Step 3, make its label here and copy it into the top of the assignment instructions in Blackboard.</p>
 
 <div class="wb-tag-controls">
   <label for="tag-level">Level</label>
@@ -161,20 +170,19 @@
   <button class="wb-button secondary" type="button" id="tag-copy-html">Copy HTML</button>
   <span class="wb-tag-status" aria-live="polite"></span>
 </div>
+<details class="wb-tag-more">
+<summary>Pasting tips</summary>
 <p class="wb-tag-help">Use <strong>Copy label</strong> to paste straight into the Blackboard editor. If the formatting doesn't hold, use <strong>Copy HTML</strong> and paste it into the editor's HTML option. The dots and wording come through either way.</p>
-<p class="wb-tag-help">The label maker also has its own page, so you can bookmark it and come back each time you build an assignment: <a href="../ai-label/">AI Label Maker</a>.</p>
+<p class="wb-tag-help">The label maker also has its own page, so you can bookmark it and come back each time you build an assignment: <a href="../ai-label/index.html">AI Label Maker</a>.</p>
+</details>
+</aside>
+<div class="wb-tools wb-tools-end">
+  <button class="wb-button" type="button" data-wb="print">Print or save as PDF</button>
+  <button class="wb-button secondary" type="button" data-wb="clear">Clear my answers</button>
+  <span class="wb-status" aria-live="polite"></span>
+  <p class="wb-tools-note">Your answers save in this browser as you type.</p>
 </div>
-
-<h2 class="wb-step"><span>Step 4</span>How students tell you</h2>
-<div class="wb-question"><label for="disclose">How should students let you know when and how they used AI?<span class="wb-hint">A sentence at the end of the assignment? A note in the submission comments? Something else?</span></label><textarea id="disclose"></textarea><div class="wb-answer-print"></div></div>
-<div class="wb-question"><label for="sample">Write a sample sentence students could use.<span class="wb-hint">For example: "I used Copilot to brainstorm topic ideas. I chose the topic and wrote the paper myself."</span></label><textarea id="sample"></textarea><div class="wb-answer-print"></div></div>
-
-<h2 class="wb-step"><span>Step 5</span>When something goes outside the policy</h2>
-<div class="wb-question"><label for="outside">What will you do if a student uses AI in a way your policy doesn't allow?<span class="wb-hint">Think about the conversation first. Then write the one sentence that points to your Academic Integrity section, and check that your Academic Integrity section mentions AI.</span></label><textarea id="outside"></textarea><div class="wb-answer-print"></div></div>
-
-<h2 class="wb-step"><span>Step 6</span>Draft your policy</h2>
-<p>Pull your answers together into a policy written to your students. A simple structure: why AI use varies in your course, what each level means, how to tell you when they used AI, and what to do if they're not sure.</p>
-<div class="wb-question"><label for="draft">Your AI Course Policy</label><textarea id="draft"></textarea><div class="wb-answer-print"></div></div>
+</div>
 </div>
 
 <div class="wb-card wb-prompt">
