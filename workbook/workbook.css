@@ -577,3 +577,84 @@
 .wb-tag-more { margin-top: 12px; font-size: 0.88rem; }
 .wb-tag-more summary { cursor: pointer; color: var(--octc-blue); font-weight: 700; }
 .wb-tag-more summary:focus-visible { outline: 3px solid var(--octc-blue); outline-offset: 2px; }
+
+/* ---------- Try It as a legal pad (screen only) ----------
+   The lesson stays on the clean playbook page. The Try It section is the
+   working space: pale yellow paper, faint blue rules, a double pink margin
+   line, and a navy binding across the top. Print is unchanged. */
+:root {
+  --pad-sheet: #fffae3;
+  --pad-rule: rgba(0, 70, 127, 0.16);
+  --pad-margin: rgba(214, 92, 112, 0.6);
+  --pad-rule-gap: 1.75rem;
+}
+
+@media screen {
+  .wb-try {
+    margin: 0 -24px 38px;
+    padding: 26px 32px 30px 80px;
+    background-color: var(--pad-sheet);
+    background-image:
+      linear-gradient(90deg, transparent 54px, var(--pad-margin) 54px, var(--pad-margin) 55px, transparent 55px,
+                             transparent 58px, var(--pad-margin) 58px, var(--pad-margin) 59px, transparent 59px),
+      repeating-linear-gradient(to bottom, transparent 0, transparent calc(var(--pad-rule-gap) - 1px),
+                                var(--pad-rule) calc(var(--pad-rule-gap) - 1px), var(--pad-rule) var(--pad-rule-gap));
+    border-top: 16px solid var(--octc-blue-dark);   /* the pad's binding */
+    border-radius: 6px;
+    box-shadow: 0 10px 24px rgba(0, 52, 95, 0.12);
+  }
+
+  /* Answer boxes: white, with rules that line up with the typed text */
+  .wb-try .wb-question textarea,
+  .wb-try .wb-question input,
+  .wb-try .wb-question select,
+  .wb-try .wb-dropdown summary { background-color: #fff; }
+  .wb-try .wb-question textarea {
+    background-image: repeating-linear-gradient(to bottom, transparent 0, transparent calc(1.6em - 1px),
+                                                var(--pad-rule) calc(1.6em - 1px), var(--pad-rule) 1.6em);
+    background-attachment: local;
+    background-position: 0 12px;   /* matches the box's top padding */
+  }
+  .wb-try .wb-card { background: #fff; }
+
+  /* "Skip to Try It": a small tab of the same pad */
+  .wb-skip { margin: 20px 0 34px; font-size: 1rem; }
+  .wb-skip a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 8px 18px;
+    background-color: var(--pad-sheet);
+    border: 1px solid #e3d29a;
+    border-top: 5px solid var(--octc-blue-dark);
+    border-radius: 6px;
+    box-shadow: 0 3px 8px rgba(0, 52, 95, 0.10);
+    color: var(--octc-blue-dark);
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .wb-skip a::after { content: "\2193"; font-size: 1.1em; line-height: 1; }
+  .wb-skip a:hover {
+    color: var(--octc-blue-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(0, 52, 95, 0.16);
+  }
+  .wb-skip a:focus-visible { outline: 3px solid var(--octc-blue); outline-offset: 3px; }
+}
+
+@media screen and (max-width: 600px) {
+  .wb-try {
+    padding: 22px 18px 24px 40px;
+    background-image:
+      linear-gradient(90deg, transparent 24px, var(--pad-margin) 24px, var(--pad-margin) 25px, transparent 25px,
+                             transparent 28px, var(--pad-margin) 28px, var(--pad-margin) 29px, transparent 29px),
+      repeating-linear-gradient(to bottom, transparent 0, transparent calc(var(--pad-rule-gap) - 1px),
+                                var(--pad-rule) calc(var(--pad-rule-gap) - 1px), var(--pad-rule) var(--pad-rule-gap));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wb-skip a, .wb-skip a:hover { transition: none; transform: none; }
+}
