@@ -66,6 +66,7 @@ Answers save in the faculty member's own browser only. Nothing is sent anywhere.
 index.html                    Playbook home page
 README.md                     This file
 css/styles.css                Shared styles for the playbook and the workbook
+js/playbook.js                BE page sidebar: highlights the current section, collapses on phones
 images/                       Logo, playbook home art (open book),
                               and Start Here art (paper-pen.svg)
 ai-label/
@@ -113,7 +114,8 @@ Questions, or interested in adapting the playbook? Contact Stephanie Self, Instr
 ## Notes for editing
 
 - **Upload files together.** When a page and a stylesheet or script change at the same time, upload all of them. A new page with an old `workbook.css` or `styles.css` will look broken.
-- **Version tags.** Pages link to shared files with version tags: `styles.css?v=12`, `workbook.css?v=14`, `workbook.js?v=5`. After changing one of those files, raise its number on every page that uses it so browsers load the new version.
+- **Version tags.** Pages link to shared files with version tags: `styles.css?v=13`, `workbook.css?v=14`, `workbook.js?v=5`. After changing one of those files, raise its number on every page that uses it so browsers load the new version.
+- **BE page sidebar:** each BE page has a left sidebar (`pb-side`) listing the playbook's pages, with that page's sections underneath, the Reference appendices, and a workbook link. On phones and tablets it becomes an "On this page" button. Section links use the ids `purpose`, `stages`, `i-can`, `habits`, `where`, `quick-wins`, `tips`, and `reflect`; keep them if you edit a BE page, and add the sidebar's list to any new page in the same pattern.
 - **Two page styles in the playbook:** Welcome, How to Use, and the appendices use the `intro-page` class on `<body>` for an open layout that matches the home page. The five BE pages use the navy header card. Keep new reference pages on `intro-page`.
 - **Stage settings:** the short line under each stage name on the BE pages ("First-Year Experience courses," etc.) uses the `stage-context` class. These are typical examples, not placements.
 - **Nav buttons:** the WORKBOOK and PLAYBOOK buttons use the `nav-button` class with an inline icon (`nav-icon`). The button text stays navy because white text on this gold doesn't meet contrast guidelines.
