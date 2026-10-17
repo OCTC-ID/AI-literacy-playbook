@@ -658,3 +658,31 @@
 @media (prefers-reduced-motion: reduce) {
   .wb-skip a, .wb-skip a:hover { transition: none; transform: none; }
 }
+
+/* Example policies (Exercise 1, Step 6): a white card that opens on the pad */
+.wb-examples {
+  margin: 4px 0 22px;
+  border: 1px solid var(--border, #d9e2ea);
+  border-left: 4px solid var(--octc-gold);
+  border-radius: 6px;
+  background: #fff;
+}
+.wb-examples summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  min-height: 44px; padding: 10px 14px;
+  color: var(--octc-blue-dark); font-weight: 800; cursor: pointer; list-style: none;
+}
+.wb-examples summary::-webkit-details-marker { display: none; }
+.wb-examples summary::after {
+  content: ""; flex: none; width: 8px; height: 8px; margin-top: -4px;
+  border-right: 2px solid var(--octc-blue); border-bottom: 2px solid var(--octc-blue);
+  transform: rotate(45deg);
+}
+.wb-examples[open] summary::after { margin-top: 4px; transform: rotate(-135deg); }
+.wb-examples summary:focus-visible { outline: 3px solid var(--octc-blue); outline-offset: 2px; }
+.wb-examples-body { padding: 0 18px 8px; }
+.wb-examples-note { color: var(--muted, #52606d); font-size: 0.95rem; }
+.wb-example-policy { padding: 14px 0 12px; border-top: 1px solid var(--border, #d9e2ea); }
+.wb-example-policy h3 { margin: 0 0 8px; font-size: 1.05rem; color: var(--octc-blue-dark); }
+.wb-example-policy p { margin: 0 0 8px; }
+@media print { .wb-examples { display: none; } }
