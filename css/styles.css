@@ -1589,3 +1589,51 @@ img {
     display: none;
   }
 }
+
+
+/* =========================================================
+   BE page sidebar: the playbook's pages plus "on this page"
+   sections. Sticky on wide screens; an "On this page"
+   button on phones and tablets. js/playbook.js highlights
+   the current section and closes the panel on small screens.
+   ========================================================= */
+.pb-shell { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 270px minmax(0, 1fr); align-items: start; }
+.pb-shell > main.playbook-page { margin-top: 36px; }
+
+.pb-side { align-self: stretch; border-right: 1px solid var(--border); background: var(--octc-blue-soft); }
+.pb-side details { position: sticky; top: 0; max-height: 100vh; overflow-y: auto; padding: 30px 18px 30px 22px; }
+.pb-side summary { list-style: none; cursor: default; }
+.pb-side summary::-webkit-details-marker { display: none; }
+.pb-side .side-label { display: block; font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--octc-blue); }
+.pb-side .side-title { display: block; margin: 2px 0 18px; font-weight: 800; font-size: 1.02rem; line-height: 1.3; color: var(--octc-blue-dark); }
+.pb-side .toggle { display: none; }
+.pb-side ol { list-style: none; margin: 0; padding: 0; }
+.pb-side li { margin: 2px 0; }
+.pb-side .group { margin: 18px 0 6px; font-size: .7rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.pb-side a.pg { display: block; padding: 7px 10px; border-radius: 8px; color: var(--octc-blue); font-size: .94rem; line-height: 1.35; text-decoration: none; }
+.pb-side a.pg:hover { background: #fff; }
+.pb-side a.pg[aria-current="page"] { background: #fff; color: var(--octc-blue-dark); font-weight: 800; box-shadow: inset 4px 0 0 var(--octc-gold); }
+.pb-side .sections { margin: 4px 0 10px 14px; border-left: 2px solid var(--border); }
+.pb-side .sections a { display: block; margin-left: -2px; padding: 4px 0 4px 12px; border-left: 2px solid transparent; color: var(--muted); font-size: .85rem; line-height: 1.35; text-decoration: none; }
+.pb-side .sections a:hover { color: var(--octc-blue); }
+.pb-side .sections a.on { color: var(--octc-blue-dark); font-weight: 700; border-left-color: var(--octc-gold); }
+.pb-side .wb-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 20px; padding: 8px 14px; border-radius: 8px; background: var(--octc-blue-dark); color: #fff; font-size: .85rem; font-weight: 800; text-decoration: none; }
+.pb-side .wb-link:hover { color: #fff; background: var(--octc-blue); }
+[id] { scroll-margin-top: 16px; }
+
+/* Phones and tablets: the sidebar becomes an "On this page" button above the content */
+@media (max-width: 900px) {
+  .pb-shell { display: block; }
+  .pb-side { border-right: 0; border-bottom: 1px solid var(--border); }
+  .pb-side details { position: static; max-height: none; padding: 12px 16px; }
+  .pb-side summary { display: flex; justify-content: space-between; align-items: center; gap: 12px; cursor: pointer; min-height: 44px; }
+  .pb-side .side-title { margin: 0; }
+  .pb-side .toggle { display: inline-flex; padding: 6px 12px; border-radius: 999px; background: var(--octc-blue-dark); color: #fff; font-size: .8rem; font-weight: 800; }
+  .pb-side details[open] .toggle .closed, .pb-side details:not([open]) .toggle .open { display: none; }
+  .pb-side .panel { padding: 10px 0 6px; }
+}
+
+@media print {
+  .pb-side { display: none; }
+  .pb-shell { display: block; }
+}
